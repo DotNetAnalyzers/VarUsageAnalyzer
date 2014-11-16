@@ -2,18 +2,16 @@
 <package>
   <metadata>
     <id>DotNetDoodle.Analyzers</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0</version>
     <title>DotNetDoodle.Analyzers</title>
-    <authors>DotNetDoodle.Analyzers</authors>
+    <authors>Tugberk Ugurlu</authors>
     <owners>DotNetDoodle.Analyzers</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/DotNetDoodle/DotNetDoodle.Analyzers/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DotNetDoodle/DotNetDoodle.Analyzers</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>DotNetDoodle.Analyzers</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>Useful .NET Compiler Platform analyzers and code fix providers for your C# projects</description>
     <copyright>Copyright</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>Roslyn Analyzers Refactoring DotNetDoodle</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
     </frameworkAssemblies>
