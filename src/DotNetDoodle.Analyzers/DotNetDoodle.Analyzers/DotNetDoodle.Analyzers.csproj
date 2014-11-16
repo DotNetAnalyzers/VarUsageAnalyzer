@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VarCodeFixProvider.cs" />
     <Compile Include="VarDiagnosticAnalyzer.cs" />
   </ItemGroup>
   <ItemGroup>
