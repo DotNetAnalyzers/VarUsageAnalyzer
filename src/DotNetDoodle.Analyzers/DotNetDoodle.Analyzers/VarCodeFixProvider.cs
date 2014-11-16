@@ -23,7 +23,7 @@ namespace DotNetDoodle.Analyzers
 
         public override FixAllProvider GetFixAllProvider()
         {
-            return null;
+            return WellKnownFixAllProviders.BatchFixer;
         }
 
         public override async Task ComputeFixesAsync(CodeFixContext context)
