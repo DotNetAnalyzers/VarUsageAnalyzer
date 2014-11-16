@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>DotNetDoodle.Analyzers</id>
-    <version>1.0.0</version>
+    <version>0.0.1</version>
     <title>DotNetDoodle.Analyzers</title>
     <authors>Tugberk Ugurlu</authors>
     <owners>DotNetDoodle.Analyzers</owners>
