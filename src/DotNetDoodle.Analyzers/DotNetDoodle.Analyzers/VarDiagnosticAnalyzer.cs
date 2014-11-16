@@ -14,8 +14,8 @@ namespace DotNetDoodle.Analyzers
         internal const string DiagnosticId = "TU0001";
         internal static DiagnosticDescriptor Rule = new DiagnosticDescriptor(
             id: DiagnosticId,
-            title: "Avoid Using var",
-            messageFormat: "Variable declation has var keyword instead of explicit type",
+            title: "Avoid Using Implicit Type",
+            messageFormat: "Variable declation has implicit type 'var' instead of explicit type",
             category: "Usage",
             defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true);
