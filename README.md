@@ -1,4 +1,4 @@
-DotNetDoodle.Analyzers
+VarUsageAnalyzer
 ======================
 
-Some Analyzers for .NET Compiler Platform
+Implicit Type 'var' Keyword Usage Analyzer.
