@@ -64,6 +64,7 @@ namespace DotNetDoodle.Analyzers
                         // Special case: Ensure that 'var' isn't actually a type named 'var'.
                         if (type.Name.Equals("var", StringComparison.Ordinal) == false)
                         {
+                            // Special case: Ensure that the type is not an anonymous type.
                             if (type.IsAnonymousType == false)
                             {
                                 result = true;
