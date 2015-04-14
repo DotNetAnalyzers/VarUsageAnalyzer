@@ -16,17 +16,17 @@ namespace DotNetDoodle.Analyzers
     [ExportCodeFixProvider(VarDiagnosticAnalyzer.DiagnosticId, LanguageNames.CSharp)]
     public class VarCodeFixProvider : CodeFixProvider
     {
-        public override ImmutableArray<string> GetFixableDiagnosticIds()
-        {
-            return ImmutableArray.Create(VarDiagnosticAnalyzer.DiagnosticId);
-        }
-
         public override FixAllProvider GetFixAllProvider()
         {
             return WellKnownFixAllProviders.BatchFixer;
         }
 
-        public override async Task ComputeFixesAsync(CodeFixContext context)
+        public override ImmutableArray<string> FixableDiagnosticIds
+        {
+            get { return ImmutableArray.Create(VarDiagnosticAnalyzer.DiagnosticId); }
+        }
+
+        public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             SyntaxNode root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
             Diagnostic diagnostic = context.Diagnostics.First();
@@ -41,7 +41,7 @@ namespace DotNetDoodle.Analyzers
                 .First();
 
             // Register a code action that will invoke the fix.
-            context.RegisterFix(CodeAction.Create(
+            context.RegisterCodeFix(CodeAction.Create(
                     "Replace 'var' with explicit Type",
                     cancellationToken => ReplaceVarWithExplicitType(context.Document, variableDeclaration, cancellationToken)
                 ),
