@@ -38,13 +38,13 @@ namespace DotNetDoodle.Analyzers
         private void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
             VariableDeclarationSyntax variableDeclaration = (VariableDeclarationSyntax)context.Node;
-            if (IsIllegitVarUsage(variableDeclaration, context.SemanticModel))
+            if (IsReportable(variableDeclaration, context.SemanticModel))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, variableDeclaration.Type.GetLocation()));
             }
         }
 
-        private bool IsIllegitVarUsage(VariableDeclarationSyntax variableDeclaration, SemanticModel semanticModel)
+        private bool IsReportable(VariableDeclarationSyntax variableDeclaration, SemanticModel semanticModel)
         {
             bool result;
             TypeSyntax variableTypeName = variableDeclaration.Type;
