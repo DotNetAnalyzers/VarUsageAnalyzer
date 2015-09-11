@@ -67,7 +67,15 @@ namespace DotNetDoodle.Analyzers
                             // Special case: Ensure that the type is not an anonymous type.
                             if (type.IsAnonymousType == false)
                             {
-                                result = true;
+                                // Special case: Ensure that it's not a 'new' expression.
+                                if (variableDeclaration.Variables.First().Initializer.Value.IsKind(SyntaxKind.ObjectCreationExpression))
+                                {
+                                    result = false;
+                                }
+                                else
+                                {
+                                    result = true;
+                                }
                             }
                             else
                             {
