@@ -38,13 +38,13 @@ namespace DotNetDoodle.Analyzers
         private void AnalyzeNode(SyntaxNodeAnalysisContext context)
         {
             VariableDeclarationSyntax variableDeclaration = (VariableDeclarationSyntax)context.Node;
-            if (IsLegitVarUsage(variableDeclaration, context.SemanticModel))
+            if (IsReportable(variableDeclaration, context.SemanticModel))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, variableDeclaration.Type.GetLocation()));
             }
         }
 
-        private bool IsLegitVarUsage(VariableDeclarationSyntax variableDeclaration, SemanticModel semanticModel)
+        private bool IsReportable(VariableDeclarationSyntax variableDeclaration, SemanticModel semanticModel)
         {
             bool result;
             TypeSyntax variableTypeName = variableDeclaration.Type;
@@ -67,7 +67,15 @@ namespace DotNetDoodle.Analyzers
                             // Special case: Ensure that the type is not an anonymous type.
                             if (type.IsAnonymousType == false)
                             {
-                                result = true;
+                                // Special case: Ensure that it's not a 'new' expression.
+                                if (variableDeclaration.Variables.First().Initializer.Value.IsKind(SyntaxKind.ObjectCreationExpression))
+                                {
+                                    result = false;
+                                }
+                                else
+                                {
+                                    result = true;
+                                }
                             }
                             else
                             {
